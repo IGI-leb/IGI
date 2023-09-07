@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- META TAGS & TITLE -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>IGI :: Home</title>
+
+    <!-- BOOTSTRAP CSS -->
+    <link rel="stylesheet" href="./libraries/bootstrap-5.3.1-dist/css/bootstrap.css">
+
+    <!-- FONT AWESOME CSS -->
+    <link rel="stylesheet" href="./libraries/fontawesome-free-6.4.2-web/css/all.css">
+
+    <!-- SWIPER CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+
+    <!-- ANIMATE CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
+    
+
+    <!-- COMMON CSS -->
+    <link rel="stylesheet" href="styles/all.css">
+
+    <!-- HOME CSS -->
+    <link rel="stylesheet" href="styles/index.css">
+    <link rel="stylesheet" href="styles/indexResponsive.css">
+
+
+    
+    <!-- VUE CDN -->
+    <script src="https://unpkg.com/vue@3.0.0/dist/vue.global.js"></script>
+    
+
+</head>
+
+<body>
+    <section id="homeSweetHome">
+        <!-- SPINNER UNTIL DATA FETCHED FROM DATABASE -->
+        <section v-if="spinner" id="spinner-sec">
+            <h3 class="text-primary">International Group Industries</h3>
+            <div class="spinner-border text-primary" role="status"></div>
+            </div>
+        </section>
+        <!-- HEADER & NAVIGATION BAR SECTION -->
+        <header class="whiteBackground shadow " id="header-section">
+
+            <nav class="navbar navbar-expand-lg ">
+
+                <div class="container-fluid">
+
+                    <a class="navbar-brand" href="index.html"><img class="img-fluid" width="200" :src="logoUrl"
+                            alt=""></a>
+
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarSupportedContent">
+                        <span class="navbar-toggler-icon "></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse pop px-2" id="navbarSupportedContent">
+
+                        <div class="ms-auto">
+
+                            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+                                <li class="nav-item">
+                                    <a class="nav-link active" href="index.html">Home</a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a class="nav-link" href="html/products.html">Products</a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a class="nav-link" href="html/projects.html">Projects</a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a class="nav-link" href="html/certifications.html">Certificates</a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a class="nav-link" href="html/aboutus.html">About Us</a>
+                                </li>
+
+                                <li class="nav-item mb-1">
+                                    <a class="nav-link" href="html/contactus.html">Contact Us</a>
+                                </li>
+
+                                <a class="btn desiredBtn d-block d-lg-none mb-1" :href="'tel:'+phoneLink">CALL US</a>
+                                <a class="btn desiredBtn d-block d-lg-none mb-1" target="_blank"
+                                    :href="locationLink">FIND
+                                    US</a>
+                                <a class="btn desiredBtn d-block d-lg-none mb-1" :href="'mailto:'+email">EMAIL US</a>
+
+                            </ul>
+
+                        </div>
+
+                    </div> <!-- END OF navbarSupportedContent -->
+
+                </div> <!-- END OF CONTAINER -->
+
+            </nav>
+
+        </header>
+
+        <!-- DIRECT CONTACT SECTION -->
+        <section
+            class="d-none d-lg-flex justify-content-between align-items-center px-4 py-2 pop container-fluid coloredBackground sticky-lg-top"
+            id="direct-contact-section">
+
+            <div>
+                <i class="fa-solid fa-location-dot" style="color: #ffffff;  margin-right: 3px;"></i>
+                <a class="linkFix" target="_blank" :href="locationLink">{{location}}</a>
+            </div>
+
+            <div>
+                <i class="fa-solid fa-phone" style="color: #ffffff; margin-right: 3px;"></i>
+                <a class="linkFix" :href="'tel:'+phoneLink">+ {{phone}}</a>
+            </div>
+
+            <div>
+                <i class="fa-solid fa-envelope" style="color: #ffffff; margin-right: 3px;"></i>
+                <a class="linkFix" :href="'mailto:'+email">{{email}}</a>
+            </div>
+
+        </section>
+
+        <!-- CAROUSEL SECTION -->
+        <section id="myCarousel" class="carousel slide mb-6" data-bs-ride="carousel" data-bs-interval="4000">
+
+            <div class="carousel-inner">
+
+                <div v-for="data in home.sliderDataArr" class="carousel-item active carousel-image"
+                    :style="{'background-image': `url(${data.imgUrl})`}">
+
+                    <div class="container">
+
+                        <div class="carousel-caption text-start">
+                            <h1 class="pop animate__animated animate__fadeInLeft">{{data.title}}</h1>
+                            <p class="pop animate__animated animate__fadeInLeft">{{data.subTitle}}</p>
+                            <a class="btn desiredBtn linkFix pop animate__animated animate__fadeInLeft"
+                                href="html/projects.html">Check Projects</a>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+            <button class="d-none d-lg-block carousel-control-prev" type="button" data-bs-target="#myCarousel"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+            </button>
+
+            <button class="d-none d-lg-block carousel-control-next" type="button" data-bs-target="#myCarousel"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon"></span>
+            </button>
+
+        </section>
+
+        <!-- ABOUT US SECTION -->
+        <section class="container px-3 p-lg-3 whiteBackground my-5" id="aboutUsSection">
+
+            <h2 class="section-heading text-center mb-5">Who We Are</h2>
+
+            <div class="row g-4">
+
+                <div class="col-12 col-lg-4 text-center">
+                    <i class="fa-solid fa-hammer faIcons" style="color: rgb(44, 116, 179);"></i>
+                    <h2 class="pop desiredH2">We Build Air Movement Products</h2>
+                    <p class="pop aboutUs-section-p">From the smallest HVAC products to the largest ones</p>
+                </div>
+
+                <div class="col-12 col-lg-4 text-center">
+                    <i class="fa-solid fa-person faIcons" style="color: rgb(44, 116, 179);"></i>
+                    <h2 class="pop desiredH2">Each Customer is Number One</h2>
+                    <p class="pop aboutUs-section-p">We are working hard to reach customer satisfaction</p>
+                </div>
+
+                <div class="col-12 col-lg-4 text-center">
+                    <i class="fa-solid  faIcons fa-calendar-days" style="color: rgb(44, 116, 179);"></i>
+                    <h2 class="pop desiredH2">We're Old in the Industry</h2>
+                    <p class="pop aboutUs-section-p">Manufacturer of air movement products since 2000</p>
+                </div>
+
+            </div><!-- ROW END -->
+
+        </section>
+        <hr class="container">
+
+
+        <!-- FEATURED PRODUCTS SECTION -->
+        <section id="featured-products-swiper-section" class="container p-lg-3">
+
+            <h2 class="section-heading text-center mb-3 mb-lg-5">Featured Products</h2>
+
+            <div class="row">
+
+                <div class="col-12">
+                    <!-- Swiper -->
+                    <div class="swiper">
+
+                        <div class="swiper-wrapper">
+
+                            <div v-for="product in home.featuredProducts" class="swiper-slide ">
+
+                                <section class="shadow p-3 d-flex flex-column gap-2 swiper-div">
+
+                                    <div class="ratio ratio-4x3 fImage">
+                                        <img :src="product.imgUrl" class="img-fluid object-fit-cover rounded " alt="">
+                                    </div>
+                                    <h5 class="desiredH5">{{product.title}}</h5>
+                                    <p class="section-p">{{product.desc}}</p>
+                                    <a class="btn desiredBtn linkFix" href="html/products.html">Check Products</a>
+                                </section>
+
+                            </div>
+
+
+
+                        </div>
+
+                        <div class="swiper-pagination position-static my-3 my-lg-5"></div>
+
+                    </div>
+
+                </div>
+            </div>
+        </section>
+        <hr class="container">
+
+        <!-- CERTIFICATION SECTION -->
+        <section id="certification-section" class="container p-lg-3">
+
+            <div class="row align-items-center my-5 g-3">
+
+                <div class="col-md-12 col-lg-5  px-3 px-lg-0 mb-3">
+                    <h2 class="section-heading text-start">We Are Certified</h2>
+                    <p class="section-p">Yes, with over 37 years of experience, IGI has equipped itself as a trusted
+                        name in
+                        the industry, committed to delivering top - quality products and unparalleled customer service.
+                    </p>
+                    <a href="html/certifications.html" class="desiredBtn linkFix">Check Certificates</a>
+                </div>
+
+                <div class="col-md-12 col-lg-5 container-fluid cerImgDiv">
+                    <img class="rounded img-fluid object-fit-cover cer-img" :src="home.certifiedImageUrl" alt="">
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- FOOTER SECTION -->
+        <section id="footer-section" class="container-fluid coloredBackground">
+
+            <footer class="pt-5 pb-2 container">
+
+                <div class="row g-sm-3 g-md-3 g-lg-5">
+
+                    <div class="col-12 col-md-12 col-lg-5 mb-3">
+
+                        <h5 class="footerH5-white">INTERNATIONAL GROUP INDUSTRIES</h5>
+                        <p class="footer-p-white">
+                            IGI team works hard to meet customer satisfaction by implementing the basic standards of
+                            HVAC
+                            products. We communicate directly with our customers via the internet or by phone so we
+                            always
+                            can understand their needs.
+                        </p>
+                        
+                    </div>
+
+                    <div class="col-12 col-md-12 col-lg-3 mb-3">
+
+                        <h5 class="footerH5-white">NAVIGATE</h5>
+                        <ul class="nav flex-column">
+                            <li class="mb-2 footer-p-white"><a href="index.html" class=" p-0 linkFix">Home</a></li>
+                            <li class="mb-2 footer-p-white"><a href="html/products.html"
+                                    class=" p-0 linkFix">Products</a></li>
+                            <li class="mb-2 footer-p-white"><a href="html/projects.html"
+                                    class=" p-0 linkFix">Projects</a></li>
+                            <li class="mb-2 footer-p-white"><a href="html/certifications.html"
+                                    class=" p-0 linkFix">Certificates</a></li>
+                            <li class="mb-2 footer-p-white"><a href="html/aboutus.html" class=" p-0 linkFix">About
+                                    Us</a></li>
+                            <li class="mb-2 footer-p-white"><a href="html/contactus.html" class=" p-0 linkFix">Contact
+                                    Us</a></li>
+                        </ul>
+
+                    </div>
+
+                    <div class="col-12 col-md-12 col-lg-4 mb-3">
+
+                        
+                            <h5 class="footerH5-white">LET'S CONNECT ON SOCIAL MEDIA</h5>
+                            <p class="footer-p-white">Stay tuned with exclusive news and updates.</p>
+                            <div class="d-flex gap-3">
+                                <a :href="facebookLink" target="_blank"><i class="fa-brands fa-facebook footerFaIcons"
+                                        style="color: #ffffff;"></i></a>
+                                <a :href="instagramLink" target="_blank"><i class="fa-brands fa-instagram footerFaIcons"
+                                        style="color: #ffffff;"></i></a>
+                                <a :href="linkedinLink" target="_blank"><i class="fa-brands fa-linkedin footerFaIcons"
+                                        style="color: #ffffff;"></i></a>
+                                <a :href="'tel:'+phoneLink" target="_blank"><i class="fa-solid fa-phone footerFaIcons"
+                                        style="color: #ffffff;"></i></a>
+                            </div>
+                        
+
+                    </div>
+
+                </div>
+
+                <hr class="text-light">
+
+                <div>
+                    <p class="footer-p-white">Copyright © {{currYear}} IGI. All Rights Reserved.</p>
+                </div>
+
+            </footer>
+
+        </section>
+        <div class="back_to_top">
+            <ion-icon name="chevron-up-outline"></ion-icon>
+        </div>
+
+
+    </section>
+
+
+    <!-- SCRIPTS LINKS SECTION -->
+    <script src="js/home.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+    <script>
+        let back_to_top = document.querySelector('.back_to_top');
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 100) {
+                back_to_top.classList.add('show');
+            } else {
+                back_to_top.classList.remove('show');
+            }
+        });
+        back_to_top.addEventListener('click', function (e) {
+            window.scrollTo({
+                top: 0,
+                left: 0,
+                behavior: 'smooth',
+            });
+        });
+    </script>
+    <!-- BOOTSTRAP SCRIPT -->
+    <script src="./libraries/bootstrap-5.3.1-dist/js/bootstrap.bundle.min.js"></script>
+    <!-- SWIPER SCRIPT -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <!-- INITIALIZING THE SWIPER -->
+    <script>
+        setTimeout(() => {
+            var swiper = new Swiper('.swiper', {
+                /*slidesPerView: 3,*/
+                spaceBetween: 30,
+                autoplay: {
+                    delay: 2500,
+                    disableOnInteraction: false,
+                },
+                loop: true,
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                },
+                breakpoints: {
+                    640: {
+                        slidesPerView: 1,
+                        spaceBetween: 20,
+                    },
+                    768: {
+                        slidesPerView: 2,
+                        spaceBetween: 40,
+                    },
+                    1024: {
+                        slidesPerView: 3,
+                        spaceBetween: 50,
+                    },
+                }
+            });
+        }, 1000);
+
+    </script>
+
+</body>
+
+</html>

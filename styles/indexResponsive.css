@@ -1,0 +1,10 @@
+/* CAROUSEL STYLING */
+@media (max-width:900px) {
+    .carousel-image {
+        height: 75vh !important;
+    }
+
+    .cerImgDiv {
+        width: 100%;
+    }
+}

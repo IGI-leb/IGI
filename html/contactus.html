@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- META TAGS & TITLE -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IGI :: Contact Us</title>
+
+    <!-- BOOTSTRAP CSS -->
+    <link rel="stylesheet" href="../libraries/bootstrap-5.3.1-dist/css/bootstrap.css">
+
+    <!-- FONT AWESOME CSS -->
+    <link rel="stylesheet" href="../libraries/fontawesome-free-6.4.2-web/css/all.css">
+
+    <!-- AOS CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- COMMON CSS -->
+    <link rel="stylesheet" href="../styles/all.css">
+
+    <!-- CONTACT US CSS -->
+    <link rel="stylesheet" href="../styles/contactus.css">
+
+    <!-- VUE CDN -->
+    <script src="https://unpkg.com/vue@3.0.0/dist/vue.global.js"></script>
+
+</head>
+
+<body>
+
+    <section id="contactApp">
+        <!-- SPINNER UNTIL DATA FETCHED FROM DATABASE -->
+        <section v-if="spinner" id="spinner-sec">
+            <h3 class="text-primary">International Group Industries</h3>
+            <div class="spinner-border text-primary" role="status"></div>
+            </div>
+        </section>
+
+
+        <!-- HEADER & NAVIGATION BAR SECTION -->
+        <header class="whiteBackground shadow " id="header-section">
+
+            <nav class="navbar navbar-expand-lg ">
+
+                <div class="container-fluid">
+
+                    <a class="navbar-brand" href="../index.html"><img class="img-fluid" width="200"
+                            :src="contactInfo.logoUrl" alt=""></a>
+
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarSupportedContent">
+                        <span class="navbar-toggler-icon "></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse pop px-2" id="navbarSupportedContent">
+
+                        <div class="ms-auto">
+
+                            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+                                <li class="nav-item">
+                                    <a class="nav-link active" href="../index.html">Home</a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a class="nav-link" href="../html/products.html">Products</a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a class="nav-link" href="../html/projects.html">Projects</a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a class="nav-link" href="../html/certifications.html">Certificates</a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a class="nav-link" href="../html/aboutus.html">About Us</a>
+                                </li>
+
+                                <li class="nav-item mb-1">
+                                    <a class="nav-link" href="../html/contactus.html">Contact Us</a>
+                                </li>
+
+                                <a class="btn desiredBtn d-block d-lg-none mb-1"
+                                    :href="'tel:'+contactInfo.phoneLink">CALL US</a>
+                                <a class="btn desiredBtn d-block d-lg-none mb-1" target="_blank"
+                                    :href="contactInfo.locationLink">FIND
+                                    US</a>
+                                <a class="btn desiredBtn d-block d-lg-none mb-1"
+                                    :href="'mailto:'+contactInfo.email">EMAIL US</a>
+
+                            </ul>
+
+                        </div>
+
+                    </div> <!-- END OF navbarSupportedContent -->
+
+                </div> <!-- END OF CONTAINER -->
+
+            </nav>
+
+        </header>
+
+
+
+
+
+        <!-- DIRECT CONTACT US SECTION -->
+
+
+        <section id="direct-contact-us-section" class="container justify-content-center ">
+
+            <div class="row text-center mt-3 mb-3">
+                <div class="col-12">
+                    <h2 class="contact-section-heading">Contact Us</h2>
+                    <p class="section-p">Directly</p>
+                </div>
+            </div>
+
+            <div class="row gap-lg-1 justify-content-center">
+                <section
+                    class="col-10 col-lg-5 shadow p-5 rounded" data-aos="fade-up" data-aos-duration="2000">
+                    <span><i class="fa-solid fa-phone fs-1"></i></span>
+                    <h6 class="my-3 fw-bold">CALL US</h6>
+                    <a :href="'tel:'+contactInfo.phoneLink" class="contact-link">+ {{contactInfo.phoneNumber}}</a>
+                </section>
+                <section
+                    class="col-10 col-lg-5 shadow p-5 rounded " data-aos="fade-up" data-aos-duration="2000">
+                    <span><i class="fa-solid fa-envelope fs-1"></i></span>
+                    <h6 class="my-3 fw-bold">EMAIL US</h6>
+                    <a :href="'mailto:'+contactInfo.email" class="contact-link">{{contactInfo.email}}</a>
+                </section>
+
+            </div>
+
+            <div class="row mb-3 gap-lg-1 justify-content-center">
+
+                <section
+                    class="col-10 col-lg-5 shadow p-5 rounded" data-aos="fade-up" data-aos-duration="2000">
+                    <span><i class="fa-solid fa-location-dot fs-1"></i></span>
+                    <h6 class="my-3 fw-bold">FIND US</h6>
+                    <a :href="contactInfo.locationLink" class="contact-link"
+                        target="_blank">{{contactInfo.location}}</a>
+                </section>
+
+                <section
+                    class="col-10 col-lg-5 shadow p-5 rounded" data-aos="fade-up" data-aos-duration="2000">
+                    <span><i class="fa-solid fa-clock fs-1"></i></span>
+                    <h6 class="my-3 fw-bold">OPEN HOURS</h6>
+                    <p>{{contactInfo.openHours}}</p>
+                </section>
+
+            </div>
+            <hr class="container my-5">
+
+
+        </section>
+
+        <!-- CONTACT FORM SECTION -->
+        <section id="contact-form-section" class="container">
+
+
+            <div class="row text-center mt-3 mb-3">
+
+                <div class="col-12">
+                    <h2 class="contact-section-heading">Get In Touch</h2>
+                    <p class="section-p">Contact Form</p>
+                </div>
+
+            </div>
+
+            <div
+                class="row mb-3 justify-content-center gap-3 gap-lg-0" data-aos="fade-up" data-aos-duration="2000">
+                <div class="col-10">
+                    <input v-model="userName" type="text" class="shadow inputEmp form-control rounded"
+                        placeholder="Name" required>
+                </div>
+            </div>
+
+            <div class="row mb-3 justify-content-center" data-aos="fade-up" data-aos-duration="2000">
+
+                <div class="col-10">
+                    <input v-model="userSubject" type="text" class="shadow inputEmp form-control rounded"
+                        placeholder="Subject" required>
+                </div>
+
+            </div>
+
+            <div class="row mb-3 justify-content-center" data-aos="fade-up" data-aos-duration="2000">
+
+                <div class="col-10">
+                    <textarea v-model="userMessage" class="shadow form-control rounded" name="" id="" cols="30"
+                        rows="10" placeholder="Type Message" required></textarea>
+                </div>
+
+            </div>
+
+            <div class="row mb-3 mb-5 justify-content-center ">
+
+                <div class="col-10 text-end" data-aos="fade-up" data-aos-duration="1000">
+                    <a :href="submit()" target="_blank" class="desiredBtn text-decoration-none">Submit</a>
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+
+
+
+
+
+        <!-- FOOTER SECTION -->
+        <section id="footer-section" class="container-fluid coloredBackground">
+
+            <footer class="pt-5 pb-2 container">
+
+                <div class="row g-sm-3 g-md-3 g-lg-5">
+
+                    <div class="col-12 col-md-12 col-lg-5 mb-3">
+
+                        <h5 class="footerH5-white">INTERNATIONAL GROUP INDUSTRIES</h5>
+                        <p class="footer-p-white">
+                            IGI team works hard to meet customer satisfaction by implementing the basic standards of
+                            HVAC
+                            products. We communicate directly with our customers via the internet or by phone so we
+                            always
+                            can understand their needs.
+                        </p>
+                        
+                    </div>
+
+
+
+
+                    <div class="col-12 col-md-12 col-lg-3 mb-3">
+
+                        <h5 class="footerH5-white">NAVIGATE</h5>
+                        <ul class="nav flex-column">
+                            <li class="mb-2 footer-p-white"><a href="../index.html" class=" p-0 linkFix">Home</a></li>
+                            <li class="mb-2 footer-p-white"><a href="../html/products.html"
+                                    class=" p-0 linkFix">Products</a></li>
+                            <li class="mb-2 footer-p-white"><a href="../html/projects.html"
+                                    class=" p-0 linkFix">Projects</a></li>
+                            <li class="mb-2 footer-p-white"><a href="../html/certifications.html"
+                                    class=" p-0 linkFix">Certificates</a></li>
+                            <li class="mb-2 footer-p-white"><a href="../html/aboutus.html" class=" p-0 linkFix">About
+                                    Us</a>
+                            </li>
+                            <li class="mb-2 footer-p-white"><a href="../html/contactus.html"
+                                    class=" p-0 linkFix">Contact
+                                    Us</a></li>
+                        </ul>
+
+                    </div>
+
+
+
+
+
+                    <div class="col-12 col-md-12 col-lg-4 mb-3">
+
+                        <h5 class="footerH5-white">LET'S CONNECT ON SOCIAL MEDIA</h5>
+                            <p class="footer-p-white">Stay tuned with exclusive news and updates.</p>
+                            <div class="d-flex gap-3">
+                                <a :href="contactInfo.facebookLink" target="_blank"><i
+                                        class="fa-brands fa-facebook footerFaIcons" style="color: #ffffff;"></i></a>
+                                <a :href="contactInfo.instagramLink" target="_blank"><i
+                                        class="fa-brands fa-instagram footerFaIcons" style="color: #ffffff;"></i></a>
+                                <a :href="contactInfo.linkedinLink" target="_blank"><i
+                                        class="fa-brands fa-linkedin footerFaIcons" style="color: #ffffff;"></i></a>
+                                <a :href="'tel:'+contactInfo.phoneLink" target="_blank"><i
+                                        class="fa-solid fa-phone footerFaIcons" style="color: #ffffff;"></i></a>
+                            </div>
+
+                    </div>
+
+                </div>
+
+                <hr class="text-light">
+
+                <div>
+                    <p class="footer-p-white">Copyright © {{currYear}} IGI. All Rights Reserved.</p>
+                </div>
+
+            </footer>
+
+        </section>
+        <div class="back_to_top">
+            <ion-icon name="chevron-up-outline"></ion-icon>
+        </div>
+    </section>
+
+
+    <!-- SCRIPTS LINKS SECTION -->
+    <script src="../js/contact.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+    <script>
+        let back_to_top = document.querySelector('.back_to_top');
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 100) {
+                back_to_top.classList.add('show');
+            } else {
+                back_to_top.classList.remove('show');
+            }
+        });
+        back_to_top.addEventListener('click', function (e) {
+            window.scrollTo({
+                top: 0,
+                left: 0,
+                behavior: 'smooth',
+            });
+        });
+    </script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- BOOTSTRAP SCRIPT -->
+    <script src="../libraries/bootstrap-5.3.1-dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        AOS.init();
+    </script>
+
+
+</body>
+
+</html>

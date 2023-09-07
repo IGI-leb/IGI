@@ -1,0 +1,49 @@
+
+*{
+    list-style-type: none;
+}
+
+
+:root {
+    --white: #fff;
+    --brightBlue: rgb(44, 116, 179);
+    --darkBlue: rgb(20, 66, 114);
+    --pText: #8f8f8f;
+}
+
+.btn-filter {
+    font-size: 0.8rem;
+    cursor: pointer;
+    border: 1px solid var(--darkBlue);
+    color: var(--darkBlue);
+    transition: all 0.3s ease-in;
+}
+
+.btn-filter.mixitup-control-active {
+    transition: all 0.5s ease-in;
+    background: var(--brightBlue);
+    color: var(--white);
+    border: none;
+}
+
+
+@keyframes down {
+    0% {
+        transform: translateY(2rem);
+    }
+    100% {
+        transform: translateY(0rem);
+    }
+}
+
+.projects-products-section-heading{
+    margin: 1% 0 1%;
+    color: var(--brightBlue);
+    font-size: 2.8rem !important;
+    font-weight: bold;
+}
+
+.contentsec{
+    height: 100% !important;
+}
+

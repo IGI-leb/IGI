@@ -1,0 +1,83 @@
+/* CAROUSEL STYLING */
+.carousel-bg-1
+{
+    background-image: url('../images/CAROUSEL/1.jpg ');
+    
+}
+
+/* .carousel-bg-2
+{
+    background-image: url('../images/CAROUSEL/2.jpg ');
+    
+}
+
+.carousel-bg-3
+{
+    background-image: url('../images/CAROUSEL/3.jpg ');
+    
+} */
+
+/* :style="{'background-image': `url(${item.imageUrl})`} */
+
+.carousel-image
+{
+    height: 100vh !important;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.animate__animated.animate__fadeInLeft {
+    --animate-duration: 2s;
+    
+}
+
+.animate__animated.animate__fadeInRight{
+    --animate-duration: 2s;
+    
+}
+
+.animate__animated.animate__fadeInUp{
+    --animate-duration: 2s;
+}
+
+
+.swiper-pagination-bullet
+{
+    background-color: var(--brightBlue) !important;
+}
+
+
+
+.swiper-div
+{
+    height: 100% !important;  
+}
+
+.featured-btn
+{
+    position: absolute;
+    bottom: 10px;
+    width: 91%;
+    display: flex;
+    justify-content: center;
+}
+
+/* ABOUT US SECTION STYLING */
+
+.aboutUs-section-p
+{
+    opacity: 0.8;
+    color: var(--darkBlue) !important;
+    line-height: 1.5;
+}
+
+.cer-img
+{
+   height: 100% !important;
+   width: 100% !important;
+}
+
+
+
+
